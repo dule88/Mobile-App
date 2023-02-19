@@ -13,7 +13,7 @@ const Products = () => {
                 <div key={product.id} className="item">
                     <Link to={`/single/${product.id}`}>
                     <img src={`http://localhost:3000/${product.img}`} alt="" />
-                    <h3>{product.name}</h3>
+                    <h4>{product.name}</h4>
                     <p>${product.price}</p>
                     </Link>
                 </div>
