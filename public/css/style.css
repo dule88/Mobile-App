@@ -12,7 +12,7 @@
     --text: #4a4a4a;
     --borders: #eeeeee;
 } */
-/* KO RADI SASS EVO VARIJABLE I ZA SASS */
+
 /*---- MIXINS ----*/
 /* basic styles */
 * {
@@ -182,20 +182,6 @@ header h1:after {
   background: #3a8bcd;
   height: 3px;
   margin: 20px 0;
-}
-
-/*---- FEATURED ITEMS ----*/
-.featuredItems h2 {
-  margin-bottom: 30px;
-}
-.featuredItems .owl-carousel .item {
-  border: 1px solid #eeeeee;
-  padding: 30px;
-  border-radius: 5px;
-  transition: 0.3s ease-in-out;
-}
-.featuredItems .owl-carousel .item:hover {
-  border: 1px solid #3a8bcd;
 }
 
 /*---- SUBSCRIBE ----*/
