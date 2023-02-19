@@ -277,7 +277,7 @@ footer article:last-child {
   flex-direction: row;
 }
 .products article .item {
-  flex: 0 0 24%;
+  flex: 0 0 33%;
   border: 1px solid #eeeeee;
   padding: 10px;
   margin-bottom: 15px;
