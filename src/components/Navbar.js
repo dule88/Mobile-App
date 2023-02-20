@@ -1,27 +1,35 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+
+import CartContext from '../contexts/CartContext';
+
+
 
 const Navbar = () => {
+
+    const {cart} = useContext(CartContext);
+
   return (
     <>
          <nav>
             <ul>
                 <li>
-                    <a href="/">Home</a>
+                    <Link to="/">Home</Link> 
                 </li>
                 <li>
-                    <a href="products">Products</a>
+                    <Link to="products">Products</Link> 
                 </li>
                 <li>
-                    <a href="about">About us</a>
+                    <Link to="about">About us</Link> 
                 </li>
                 <li>
-                    <a href="contact">Contact us</a>
+                    <Link to="contact">Contact us</Link> 
                 </li>
                 <li>
-                    <a href="cart">Cart</a>
+                    <Link to="cart">Cart({cart.length})</Link> 
                 </li>
                 <li>
-                    <a href="admin">Admin</a>
+                    <Link to="admin">Admin</Link> 
                 </li>
             </ul>
         </nav>
