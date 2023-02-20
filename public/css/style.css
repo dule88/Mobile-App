@@ -144,7 +144,7 @@ nav ul li {
 @media (max-width: 767px) {
   nav ul li {
     font-size: 0.7rem;
-    flex: 0 0 25%;
+    flex: 0 0 16%;
   }
 }
 nav ul li a {
@@ -255,7 +255,7 @@ footer nav ul li {
 }
 @media (max-width: 767px) {
   footer nav ul li {
-    flex: 0 0 20%;
+    flex: 0 0 16%;
   }
 }
 footer nav ul li a {
@@ -297,7 +297,7 @@ footer article:last-child {
     flex: 0 0 50%;
   }
   }
-  @media (max-width: 450px) {
+  @media (max-width: 480px) {
     .products article .item {
       flex: 0 0 100%;
     }
