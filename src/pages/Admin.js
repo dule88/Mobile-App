@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react';
 import {useNavigate} from 'react-router-dom';
 
 import ProductsContext from '../contexts/ProductsContext';
+import deleteProduct from '../utils/deleteProduct';
+import fetchProduct from '../utils/fetchProduct';
 
 const Admin = () => {
 
@@ -72,10 +74,8 @@ const Admin = () => {
       .then(productJson => {
         cancelEditing();
 
-        fetch('http://localhost:3000/')
-          .then(res => res.json())
-          .then(prodRes => setProducts(prodRes))
-          .catch(err => console.log(err))
+       fetchProduct(setProducts);
+       
 
       })
       .catch(err => console.log(err))
@@ -84,20 +84,10 @@ const Admin = () => {
 
     // Delete product from admin page
 
-    const removeProduct = (id, setProducts) => {
-      fetch(`http://localhost:3000/delete/${id}`, {
-        method: 'DELETE'
-      })
-        .then(res => res.json())
-        .then(prodRes => {
-          fetch('http://localhost:3000/')
-          .then(res => res.json())
-          .then(prodRes => setProducts(prodRes))
-          .catch(err => console.log(err))
-        })
-        .catch(err => console.error(err))
+    const removeProduct = (id) => {
+      deleteProduct(id, setProducts);
     }
-
+  
   return (
     <div className='container'>
     {editMode.mode
@@ -176,9 +166,9 @@ const Admin = () => {
               <td className='py-3'>{item.name}</td>
               <td className='py-3'>{item.qty}</td>
               <td className='py-3'>${item.price}</td>
-              <td className='py-3'><button class="btn btn-info my-auto" onClick={() => navigate(`/single/${item.id}`)}>View</button></td>
-              <td className='py-3'><button class="btn btn-warning my-auto" onClick={() => setEditProduct(item.id)}>Edit</button></td>
-              <td className='py-3'><button class="btn btn-danger my-auto" onClick={() => removeProduct(item.id)}>Delete</button></td>
+              <td className='py-3'><button className="btn btn-info my-auto" onClick={() => navigate(`/single/${item.id}`)}>View</button></td>
+              <td className='py-3'><button className="btn btn-warning my-auto" onClick={() => setEditProduct(item.id)}>Edit</button></td>
+              <td className='py-3'><button className="btn btn-danger my-auto" onClick={() => removeProduct(item.id)}>Delete</button></td>
             </tr>
           );
         })}
