@@ -18,13 +18,77 @@ const Admin = () => {
 
   const navigate = useNavigate();
 
+  // Preview product for editing
+  const setEditProduct = (id) => {
+    setEditMode({mode: true, id: id});
+
+    let product = products.filter(prod => {
+      if(prod.id == id) return prod;
+    })[0];
+
+    setName(product.name);
+    setPrice(product.price);
+    setDesc(product.desc);
+    setCategory(product.category);
+    setQty(product.qty);
+
+
+  }
+
+  // Cancel window for ediing product
+
+  const cancelEditing = () => {
+    setEditMode({mode: false, id: null});
+
+    setName('');
+    setPrice('');
+    setDesc('');
+    setCategory('');
+    setQty('');
+
+  }
+
+  // Edit product in Edit form
+
+  const editProduct = (event) => {
+    event.preventDefault();
+
+    const data = {
+      name: name,
+      price: price,
+      desc: desc,
+      category: category,
+      qty: qty
+    };
+
+    fetch(`http://localhost:3000/edit/${editMode.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+      .then(productRaw => productRaw.json())
+      .then(productJson => {
+        cancelEditing();
+
+        fetch('http://localhost:3000/')
+          .then(res => res.json())
+          .then(prodRes => setProducts(prodRes))
+          .catch(err => console.log(err))
+
+      })
+      .catch(err => console.log(err))
+
+  };
+
   return (
     <div className='container'>
     {editMode.mode
       ?
       <>
         <h3>Edit Product</h3>
-        <form>
+        <form onSubmit={editProduct}>
           <div className="mb-3">
             <input type="text" name='name' className='form-control' value={name} onChange={(event) => setName(event.target.value)} placeholder='Name' />
           </div>
@@ -42,7 +106,7 @@ const Admin = () => {
           </div>
           <input type="submit" value='Edit' className='btn btn-warning' />
         </form>
-        <button className='btn btn-danger' >Cancel</button>
+        <button className='btn btn-danger' onClick={() => cancelEditing()}>Cancel</button>
       </>
       :
       <>
@@ -97,7 +161,7 @@ const Admin = () => {
               <td className='py-3'>{item.qty}</td>
               <td className='py-3'>${item.price}</td>
               <td className='py-3'><button class="btn btn-info my-auto" onClick={() => navigate(`/single/${item.id}`)}>View</button></td>
-              <td className='py-3'><button class="btn btn-warning my-auto" >Edit</button></td>
+              <td className='py-3'><button class="btn btn-warning my-auto" onClick={() => setEditProduct(item.id)}>Edit</button></td>
               <td className='py-3'><button class="btn btn-danger my-auto" >Delete</button></td>
             </tr>
           );
