@@ -46,8 +46,8 @@ const Cart = () => {
               {cart.map((item, idx) => {
                 return (
                   <tr >
-                    <td className='py-3'><img src={`http://localhost:3000/${item.img}`} alt="Photo" height="50px" /></td>
                     <th className='py-3'>{item.id}</th>
+                    <td className='py-3'><img src={`http://localhost:3000/${item.img}`} alt="Photo" height="50px" /></td>
                     <td className='py-3'>{item.name}</td>
                     <td className='py-3'>${item.price}</td>
                     <td className='py-3'>{item.qty}</td>
