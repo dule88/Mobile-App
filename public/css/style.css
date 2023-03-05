@@ -139,7 +139,7 @@ nav ul {
   flex-direction: row;
 }
 nav ul li {
-  flex: 0 0 10%;
+  flex: 0 0 13%;
 }
 @media (max-width: 767px) {
   nav ul li {
