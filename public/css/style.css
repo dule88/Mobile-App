@@ -256,13 +256,28 @@ footer nav ul {
   justify-content: center;
   align-items: flex-start;
   flex-direction: row;
+  margin: auto;
 }
+
+@media (max-width: 767px) {
+  footer nav ul{
+    padding-left: 0;
+  }
+}
+
 footer nav ul li {
   flex: 0 0 12%;
 }
 @media (max-width: 960px) {
   footer nav ul li {
     flex: 0 0 16%;
+  }
+}
+
+@media (max-width: 767px) {
+  footer nav ul li {
+    flex: 0 0 100%;
+    margin: 0.5rem auto;
   }
 }
 footer nav ul li a {
