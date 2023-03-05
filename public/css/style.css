@@ -171,6 +171,12 @@ header article {
   padding: 40px;
   background: rgba(255, 255, 255, 0.6);
 }
+
+@media (max-width: 1200px) {
+  header article {
+    width: 60%;
+  }
+}
 @media (max-width: 767px) {
   header article {
     width: 100%;
@@ -208,6 +214,7 @@ header h1:after {
   color: #fff;
 }
 .subscribe input[type=submit] {
+  margin: 0 3px;
   background: #fff;
   border: 1px solid #fff;
   cursor: pointer;
@@ -251,9 +258,9 @@ footer nav ul {
   flex-direction: row;
 }
 footer nav ul li {
-  flex: 0 0 10%;
+  flex: 0 0 12%;
 }
-@media (max-width: 767px) {
+@media (max-width: 960px) {
   footer nav ul li {
     flex: 0 0 16%;
   }
