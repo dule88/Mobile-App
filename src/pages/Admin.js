@@ -143,37 +143,38 @@ const Admin = () => {
 
 
     <hr />
-
-    <table className='table table-striped'>
-      <thead>
-        <tr>
-          <th scope="col">Id</th>
-          <th scope="col">Image</th>
-          <th scope="col">Name</th>
-          <th scope="col">Qty.</th>
-          <th scope="col">Unit Price</th>
-          <th scope="col">View</th>
-          <th scope="col">Edit</th>
-          <th scope="col">Delete</th>
-        </tr>
-      </thead>
-      <tbody>
-        {products.map((item, idx) => {
-          return (
-            <tr>
-              <th scope="row">{item.id}</th>
-              <td className='py-3'><img src={`http://localhost:3000/${item.img}`} alt="Photo" height="50px" /></td>
-              <td className='py-3'>{item.name}</td>
-              <td className='py-3'>{item.qty}</td>
-              <td className='py-3'>${item.price}</td>
-              <td className='py-3'><button className="btn btn-info my-auto" onClick={() => navigate(`/single/${item.id}`)}>View</button></td>
-              <td className='py-3'><button className="btn btn-warning my-auto" onClick={() => setEditProduct(item.id)}>Edit</button></td>
-              <td className='py-3'><button className="btn btn-danger my-auto" onClick={() => removeProduct(item.id)}>Delete</button></td>
-            </tr>
-          );
-        })}
-      </tbody>
-    </table>
+    <div className='table-responsive'>
+      <table className='table table-striped'>
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Qty.</th>
+            <th scope="col">Unit_Price</th>
+            <th scope="col">View</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {products.map((item, idx) => {
+            return (
+              <tr>
+                <th scope="row">{item.id}</th>
+                <td className='py-3'><img src={`http://localhost:3000/${item.img}`} alt="Photo" height="50px" /></td>
+                <td className='py-3'>{item.name}</td>
+                <td className='py-3'>{item.qty}</td>
+                <td className='py-3'>${item.price}</td>
+                <td className='py-3'><button className="btn btn-info my-auto" onClick={() => navigate(`/single/${item.id}`)}>View</button></td>
+                <td className='py-3'><button className="btn btn-warning my-auto" onClick={() => setEditProduct(item.id)}>Edit</button></td>
+                <td className='py-3'><button className="btn btn-danger my-auto" onClick={() => removeProduct(item.id)}>Delete</button></td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
   </div>
   )
 }

@@ -20,9 +20,9 @@ const Contact = () => {
             <hr />
             <div>
               <span>Find us on:</span>
-              <span><a href=""><i className="fab fa-facebook-square"></i></a></span>
+              <span><a href=""><i className="fab fa-facebook-square px-1"></i></a></span>
               <span><a href=""><i className="fab fa-instagram"></i></a></span>
-              <span><a href=""><i className="fab fa-twitter"></i></a></span>
+              <span><a href=""><i className="fab fa-twitter px-1"></i></a></span>
               <span><a href=""><i className="fab fa-pinterest"></i></a></span>
             </div>
           </div>

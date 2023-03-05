@@ -26,7 +26,7 @@ const Cart = () => {
 
 
   return (
-    <div className='container'>
+    <div className='container table-responsive'>
         {
           cart.length > 0
           ?
@@ -36,7 +36,7 @@ const Cart = () => {
                 <th scope="col">Id</th>
                 <th scope="col">Image</th>
                 <th scope="col">Name</th>
-                <th scope="col">Unit Price</th>
+                <th scope="col">Unit_Price</th>
                 <th scope="col">Qty</th>
                 <th scope="col">Price</th>
                 <th scope="col">Remove</th>
@@ -61,10 +61,10 @@ const Cart = () => {
                 <td></td>
                 <td></td>
                 <td></td>
+                <td>Total Sum:</td>
+                <td className='py-2'> ${total}</td>
                 <td></td>
-                <td className='py-2'>Total Sum: ${total}</td>
-                <td></td>
-                <td className='py-2'><button className="btn btn-danger my-auto" onClick={() => clearCart()}>Clear cart</button></td>
+                <td className='py-2'><button className="btn btn-danger my-auto" onClick={() => clearCart()}>Clear</button></td>
               </tr>
             </tbody>
           </table>
